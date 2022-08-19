@@ -4,7 +4,7 @@ var auth = require('../middlewares/auth');
 
 var Blog = require('../models/Blog');
 var Comment = require('../models/Comment');
-var User = require('../models/User');
+
 
 // Route for adding blog
 
@@ -38,7 +38,6 @@ router.get('/:slug', (req, res, next) => {
     .populate('comments')
     .exec((err, blog) => {
       if (err) return next(err);
-      // console.log(blog);
       res.render('blogDetail', { blog });
     });
 });
